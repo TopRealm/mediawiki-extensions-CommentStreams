@@ -97,7 +97,7 @@ class SMWHooks {
 				return true;
 			}
 
-			$parentWikiPage = $this->wikiPageFactory->newFromID( $reply[ 'comment_page_id' ] );
+			$parentWikiPage = $this->wikiPageFactory->newFromID( $reply->getParent()->getId() );
 			if ( $parentWikiPage ) {
 				$propertyDI = new DIProperty( '___CS_REPLYTO' );
 				$dataItem = DIWikiPage::newFromTitle( $parentWikiPage->getTitle() );
