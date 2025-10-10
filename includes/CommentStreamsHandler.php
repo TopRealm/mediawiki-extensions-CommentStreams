@@ -250,9 +250,11 @@ class CommentStreamsHandler {
 			return null;
 		}
 
-		// display comments on this page if it contains the <comment-streams/> tag function
-		if ( $this->areCommentsEnabled === self::COMMENTS_ENABLED ) {
-			return null;
+		// display comments on this page if it contains the <comment-streams/> tag function and the
+		// user can read the page
+		if ( $this->areCommentsEnabled === self::COMMENTS_ENABLED &&
+			$output->getUser()->probablyCan( 'read', $title ) ) {
+			return $title;
 		}
 
 		if ( $title->isTalkPage() ) {
@@ -343,7 +345,8 @@ class CommentStreamsHandler {
 			'enableWatchlist' => $this->notifier->isLoaded() ? 1 : 0,
 			'comments' => $comments,
 			'historyHandler' => $historyHandler ? json_encode( $historyHandler ) : null,
-			'associatedPage' => $showFor->getPrefixedDBkey()
+			'associatedPage' => $showFor->getPrefixedDBkey(),
+			'associatedPageId' => $showFor->getId(),
 		];
 		$output->addJsConfigVars( 'CommentStreams', $commentStreamsParams );
 		$output->addModules( 'ext.CommentStreams' );
