@@ -363,12 +363,6 @@ class MainHooks implements
 				}
 			}
 		}
-		if ( !isset( $GLOBALS['wgGroupPermissions']['csmoderator']['cs-moderator-delete'] ) ) {
-			$GLOBALS['wgGroupPermissions']['csmoderator']['cs-moderator-delete'] = true;
-		}
-		if ( !isset( $GLOBALS['wgGroupPermissions']['csmoderator']['cs-moderator-edit'] ) ) {
-			$GLOBALS['wgGroupPermissions']['csmoderator']['cs-moderator-edit'] = false;
-		}
 		$GLOBALS['wgAvailableRights'][] = 'cs-comment';
 		$GLOBALS['wgAvailableRights'][] = 'cs-moderator-edit';
 		$GLOBALS['wgAvailableRights'][] = 'cs-moderator-delete';
