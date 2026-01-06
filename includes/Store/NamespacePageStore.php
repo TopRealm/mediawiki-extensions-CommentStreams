@@ -595,7 +595,10 @@ class NamespacePageStore implements ICommentStreamsStore {
 			$wikiPage->getTitle()->toPageIdentity(), $actor
 		);
 		$deletePage->setSuppress( true );
-		$status = $deletePage->deleteIfAllowed( 'comment deleted' );
+		// Use deleteUnsafe to bypass permission checks, as we have already checked
+		// CommentStreams specific permissions (cs-comment/cs-moderator) in the API module.
+		// The actual user might not have 'delete' rights on the wiki page.
+		$status = $deletePage->deleteUnsafe( 'comment deleted' );
 
 		if ( !$status->isGood() ) {
 			return false;
@@ -638,7 +641,8 @@ class NamespacePageStore implements ICommentStreamsStore {
 			$wikiPage->getTitle()->toPageIdentity(), $actor
 		);
 		$deletePage->setSuppress( true );
-		$status = $deletePage->deleteIfAllowed( 'reply deleted' );
+		// Use deleteUnsafe to bypass permission checks
+		$status = $deletePage->deleteUnsafe( 'reply deleted' );
 
 		if ( !$status->isGood() ) {
 			return false;
