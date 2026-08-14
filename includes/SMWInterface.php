@@ -83,7 +83,7 @@ class SMWInterface {
 		if ( !$this->isLoaded ) {
 			return;
 		}
-		$job = new UpdateJob( $title, [] );
+		$job = ( new JobFactory() )->newUpdateJob( $title );
 		$this->jobQueueGroup->push( $job );
 	}
 
