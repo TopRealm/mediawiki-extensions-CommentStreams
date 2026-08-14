@@ -28,7 +28,7 @@ use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentity;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
-use SMW\MediaWiki\Jobs\UpdateJob;
+use SMW\MediaWiki\JobFactory;
 use SMW\PropertyRegistry;
 use SMW\StoreFactory;
 use SMWDataItem;
