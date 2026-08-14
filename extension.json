@@ -314,13 +314,20 @@
 		},
 		"registerUsageTracker": {
 			"class": "MediaWiki\\Extension\\CommentStreams\\UsageTracker\\RegisterUsageTracker"
+		},
+		"addNamespaceProperties": {
+			"class": "MediaWiki\\Extension\\CommentStreams\\Hook\\NamespaceManagerCollectNamespaceProperties\\AddNamespaceProperties"
+		},
+		"resolveCommentWatcherForNotification": {
+			"class": "MediaWiki\\Extension\\CommentStreams\\Notifier\\NotifyMeWatchlistProviderHooks",
+			"services": [ "CommentStreamsStore" ]
 		}
 	},
 	"Hooks": {
 		"MediaWikiPerformAction": "main",
 		"MovePageIsValidMove": "main",
 		"GetUserPermissionsErrors": "main",
-		"BeforePageDisplay": "main",
+		"OutputPageParserOutput": "main",
 		"ShowSearchHitTitle": "main",
 		"ParserFirstCallInit": "main",
 		"SpecialExportGetExtraPages": "main",
@@ -334,7 +341,10 @@
 		"SMWStore::updateDataBefore": "smw",
 		"SMW::Settings::BeforeInitializationComplete": "smw",
 		"MediaWikiServices": "talkPageStore",
-		"BSUsageTrackerRegisterCollectors": "registerUsageTracker"
+		"BSUsageTrackerRegisterCollectors": "registerUsageTracker",
+		"NamespaceManagerCollectNamespaceProperties": "addNamespaceProperties",
+		"NotifyMeWatchlistProviderGetWatchSource": "resolveCommentWatcherForNotification",
+		"NotifyMeWatchlistProviderGetWatchers": "resolveCommentWatcherForNotification"
 	},
 	"callback": "MediaWiki\\Extension\\CommentStreams\\MainHooks::onRegistration",
 	"RestRoutes": [
