@@ -21,9 +21,8 @@
 
 namespace MediaWiki\Extension\CommentStreams;
 
-use Article;
-use HtmlArmor;
 use MediaWiki\Actions\ActionEntryPoint;
+use MediaWiki\Export\XmlDumpWriter;
 use MediaWiki\Extension\CommentStreams\Store\NamespacePageStore;
 use MediaWiki\Extension\CommentStreams\Store\TalkPageStore;
 use MediaWiki\Hook\AfterImportPageHook;
@@ -33,9 +32,11 @@ use MediaWiki\Hook\MovePageIsValidMoveHook;
 use MediaWiki\Hook\ParserFirstCallInitHook;
 use MediaWiki\Hook\SpecialExportGetExtraPagesHook;
 use MediaWiki\Hook\XmlDumpWriterOpenPageHook;
+use MediaWiki\Import\WikiImporter;
 use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\Output\Hook\OutputPageParserOutputHook;
 use MediaWiki\Output\OutputPage;
+use MediaWiki\Page\Article;
 use MediaWiki\Page\PageProps;
 use MediaWiki\Page\PageReference;
 use MediaWiki\Page\WikiPageFactory;
@@ -46,16 +47,15 @@ use MediaWiki\Request\WebRequest;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\RevisionStore;
 use MediaWiki\Search\Hook\ShowSearchHitTitleHook;
+use MediaWiki\Search\SearchResult;
 use MediaWiki\Specials\SpecialSearch;
 use MediaWiki\Status\Status;
 use MediaWiki\Title\ForeignTitle;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 use MediaWiki\Xml\Xml;
-use SearchResult;
 use stdClass;
-use WikiImporter;
-use XmlDumpWriter;
+use Wikimedia\HtmlArmor\HtmlArmor;
 use XMLReader;
 
 class MainHooks implements

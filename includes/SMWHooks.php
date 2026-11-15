@@ -96,7 +96,6 @@ class SMWHooks {
 			if ( !$reply ) {
 				return true;
 			}
-
 			$associatedPage = $reply->getAssociatedPage();
 			if ( !$associatedPage ) {
 				return true;
