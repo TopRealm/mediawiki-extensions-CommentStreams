@@ -28,7 +28,7 @@ use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentity;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
-use SMW\MediaWiki\Jobs\UpdateJob;
+use SMW\MediaWiki\JobFactory;
 use SMW\PropertyRegistry;
 use SMW\StoreFactory;
 use SMWDataItem;
@@ -83,7 +83,7 @@ class SMWInterface {
 		if ( !$this->isLoaded ) {
 			return;
 		}
-		$job = new UpdateJob( $title, [] );
+		$job = ( new JobFactory() )->newUpdateJob( $title );
 		$this->jobQueueGroup->push( $job );
 	}
 
