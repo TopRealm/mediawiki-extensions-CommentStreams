@@ -7,7 +7,7 @@ use MediaWiki\Extension\CommentStreams\Comment;
 use MediaWiki\Extension\CommentStreams\Notifier\Event\NewCommentEvent;
 use MediaWiki\Extension\CommentStreams\NotifierInterface;
 use MediaWiki\Extension\CommentStreams\Reply;
-use MediaWiki\Page\WikiPage;
+use WikiPage;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\User\User;
 use MWStake\MediaWiki\Component\Events\Notifier;

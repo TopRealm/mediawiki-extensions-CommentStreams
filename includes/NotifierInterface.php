@@ -21,7 +21,7 @@
 
 namespace MediaWiki\Extension\CommentStreams;
 
-use MediaWiki\Page\WikiPage;
+use WikiPage;
 use MediaWiki\User\User;
 
 interface NotifierInterface {

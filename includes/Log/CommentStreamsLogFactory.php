@@ -24,7 +24,7 @@ use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Extension\CommentStreams\Comment;
 use MediaWiki\Extension\CommentStreams\Reply;
 use MediaWiki\Linker\LinkTarget;
-use MediaWiki\Logging\ManualLogEntry;
+use ManualLogEntry;
 use MediaWiki\Page\PageReference;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
