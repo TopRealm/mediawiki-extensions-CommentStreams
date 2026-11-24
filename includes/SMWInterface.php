@@ -22,7 +22,7 @@
 namespace MediaWiki\Extension\CommentStreams;
 
 use MediaWiki\Config\ServiceOptions;
-use MediaWiki\JobQueue\JobQueueGroup;
+use JobQueueGroup;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentity;
