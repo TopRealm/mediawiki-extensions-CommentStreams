@@ -31,7 +31,7 @@ use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Extension\Notifications\UserLocator;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\PageProps;
-use MediaWiki\Page\WikiPage;
+use WikiPage;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\User\User;
 

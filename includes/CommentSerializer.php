@@ -5,7 +5,7 @@ namespace MediaWiki\Extension\CommentStreams;
 use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Context\IContextSource;
 use MediaWiki\Context\RequestContext;
-use MediaWiki\FileRepo\RepoGroup;
+use RepoGroup;
 use MediaWiki\Html\Html;
 use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\Page\PageIdentity;
@@ -17,7 +17,7 @@ use MediaWiki\User\User;
 use MediaWiki\User\UserFactory;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\Utils\MWTimestamp;
-use Wikimedia\HtmlArmor\HtmlArmor;
+use HtmlArmor;
 use Wikimedia\ObjectCache\HashBagOStuff;
 
 class CommentSerializer {
